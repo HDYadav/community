@@ -126,4 +126,16 @@ class UserRepository implements UserRepositoryInterface
         return $user->syncRoles([$request->role_id]); 
 
     }
+
+
+    public function sub_congregation($id)
+    { 
+    return DB::table('users as u')
+            ->join('model_has_roles as mhr', 'mhr.model_id', '=', 'u.id')
+            ->join('roles as r', 'r.id', '=', 'mhr.role_id')
+            ->where('r.id', $id)
+            ->select('r.id as id', 'r.name as name')->orderBy('r.id', 'ASC')->get()->toArray();
+    }
+
+
 }

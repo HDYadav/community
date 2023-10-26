@@ -19,6 +19,10 @@ class UsersController extends Controller
 
     private static $superAdmin='0';
 
+    private static $subCongregation='4'; // 4 is subcongregation id ie. care taker
+    private static $subCongregationCaretaker='5'; // 5 is subCongregationCaretaker id ie. sub care taker
+    
+
     /**
      * Display all users
      * 
@@ -56,8 +60,11 @@ class UsersController extends Controller
         
         $roles = $userRepository->getRoles();
         $parents = $userRepository->getAllCategoriesWithChildren(User::all(),Self::$superAdmin);  // Get all paret and child  
-        //dd($parents);
-        return view('admin.users.create', compact('roles','parents'));
+
+        $subcongregations = $userRepository->sub_congregation(self::$subCongregation);
+        $subcongregationcaretakers = $userRepository->sub_congregation(self::$subCongregationCaretaker);
+
+        return view('admin.users.create', compact('roles','parents','subcongregations','subcongregationcaretakers'));
     }
 
     /**

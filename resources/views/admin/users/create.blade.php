@@ -15,83 +15,112 @@
             Add new user.
         </div>
 
-        <div class="container mt-4">  
-            
-           <form method="POST" id="user_info" >
+        <div class="container mt-4">
+
+            <form method="POST" id="user_info">
                 @csrf
 
                 <div class="row">
                     <div class="col-md-6">
                         <label for="name" class="form-label">Name</label>
-                        <input value="{{ old('name') }}" type="text" class="form-control" name="name" id="name" placeholder="Name" >
+                        <input value="{{ old('name') }}" type="text" class="form-control" name="name" id="name" placeholder="Name">
 
-                        <span id="name" class="text-danger text-left"  ></span>
+                        <span id="name" class="text-danger text-left"></span>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="exampleFormControlSelect3">Role (user type)</label> 
+                            <label for="exampleFormControlSelect3">Role (user type)</label>
 
-                            <select name="role_id" id="role_id" class="form-control form-control-sm" >
-                            <option value=""> Pleas select role </option>
+                            <select name="role_id" id="role_id" class="form-control form-control-sm">
+                                <option value=""> Pleas select role </option>
                                 @foreach($roles as $key=>$role)
                                 <option value="{{ $role->id}}"> {{ $role->name}} </option>
                                 @endforeach
-                            </select> 
+                            </select>
                             <span id="role_id" class="text-danger text-left"></span>
                         </div>
                     </div>
                 </div>
 
                 <div class="row">
-                <?php $i=0?>
+                    <?php $i = 0 ?>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="exampleFormControlSelect3">Parent</label> 
-                            <select name="parent_id" id="parent_id" class="form-control form-control-sm" >
-                            <option value=""> Pleas select parent </option>
+                            <label for="exampleFormControlSelect3">Parent</label>
+                            <select name="parent_id" id="parent_id" class="form-control form-control-sm">
+                                <option value=""> Pleas select parent </option>
                                 @foreach($parents as $key=>$parent)
-                                <option value="{{ $parent->id}}" > {{ $parent->name}} </option>
+                                <option value="{{ $parent->id}}"> {{ $parent->name}} </option>
                                 @if (count($parent->children) > 0)
-                                 @include('admin.users.partials.child', ['parents' => $parent->children])
+                                @include('admin.users.partials.child', ['parents' => $parent->children])
                                 @endif
-                                
+
                                 @endforeach
                             </select>
-                        
+
                             @if ($errors->has('parent_id'))
-                        <span class="text-danger text-left">{{ $errors->first('parent_id') }}</span>
-                        @endif
+                            <span class="text-danger text-left">{{ $errors->first('parent_id') }}</span>
+                            @endif
                         </div>
                     </div>
 
                     <div class="col-md-6">
                         <label for="mobile" class="form-label">Mobile </label>
-                        <input value="{{ old('mobile') }}" type="number" id="mobile" class="form-control" name="mobile" placeholder="mobile" >
+                        <input value="{{ old('mobile') }}" type="number" id="mobile" class="form-control" name="mobile" placeholder="mobile">
 
                         <span id="mobile" class="text-danger text-left"></span>
                     </div>
                 </div>
-                
+
 
                 <div class="row">
                     <div class="col-md-6">
                         <label for="email" class="form-label">Email</label>
-                        <input value="{{ old('email') }}" type="email" id="email" class="form-control" name="email" placeholder="Email ID"> 
-                        <span id="email" class="text-danger text-left"></span> 
+                        <input value="{{ old('email') }}" type="email" id="email" class="form-control" name="email" placeholder="Email ID">
+                        <span id="email" class="text-danger text-left"></span>
                     </div>
 
                     <div class="col-md-6">
                         <label for="mobile" class="form-label">User Status </label>
-                         <select name="status" class="form-control form-control-sm" >
+                        <select name="status" class="form-control form-control-sm">
                             <option value="">Select Status</option>
-                            <option value="0" >Active</option>
+                            <option value="0">Active</option>
                             <option value="1">Pending</option>
-                         </select>
+                        </select>
 
                         <span id="mobile" class="text-danger text-left"></span>
                     </div>
-                     
-                </div>   
+
+                </div> 
+
+                <div class="row">
+
+                    <div class="col-md-6">
+                        <label for="mobile" class="form-label">sub congregation </label>
+                        <select name="sub_congregation_id" id="sub_congregation_id" class="form-control form-control-sm">
+                                <option value=""> Select sub congregation </option>
+                                @foreach($subcongregations as $key=>$subcongregation)
+                                <option value="{{ $subcongregation->id}}"> {{ $subcongregation->name}} </option>
+                                @endforeach
+                            </select>
+                            <span id="sub_congregation_id" class="text-danger text-left"></span>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="mobile" class="form-label">sub congregation (care taker) </label>
+                        <select name="sub_congregation_caretaker_id" id="sub_congregation_caretaker_id" class="form-control form-control-sm">
+                                <option value=""> Select sub congregation </option>
+                                @foreach($subcongregationcaretakers as $key=>$subcongregationcaretaker)
+                                <option value="{{ $subcongregationcaretaker->id}}"> {{ $subcongregationcaretaker->name}} </option>
+                                @endforeach
+                            </select>
+                            <span id="sub_congregation_caretaker_id" class="text-danger text-left"></span>
+
+                        <span id="mobile" class="text-danger text-left"></span>
+                    </div>
+
+                </div>
+
 
                 <button type="submit" class="btn btn-primary">Save</button>
                 <a href="{{ route('users.index') }}" class="btn btn-default">Back</a>
@@ -100,11 +129,11 @@
 
     </div>
 
-</div>  
- 
+</div>
+
 
 <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 <script src="{{asset('admin/assets/js/validation.js')}}"></script>
- 
+
 
 @stop
