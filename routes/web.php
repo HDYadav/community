@@ -5,7 +5,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\UsersController;
 use App\Http\Controllers\Admin\RolesController;
 use App\Http\Controllers\Admin\PermissionsController;
-use Illuminate\Support\Facades\Auth; 
+use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\Admin\MessageGiverController; 
+use App\Http\Controllers\Admin\TaskController;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,6 +50,21 @@ use Illuminate\Support\Facades\Auth;
         //Route::get('/{user}/delete', [UsersController::class, 'destroy'])->name('users.destroy'); 
         Route::post('/delete', [UsersController::class, 'delete'])->name('users.delete'); 
     });
+
+    Route::group(['prefix' => 'message_giver'], function() {
+        Route::get('/', [MessageGiverController::class, 'index'])->name('message_giver.index');
+        Route::get('/create', [MessageGiverController::class, 'create'])->name('message_giver.create');
+        Route::post('/store', [MessageGiverController::class, 'store'])->name('message_giver.store');
+    });
+
+    Route::group(['prefix' => 'tasks'], function() {
+        Route::get('/', [TaskController::class, 'index'])->name('tasks.index');
+        Route::get('/details/{id}', [TaskController::class, 'show'])->name('tasks.show');
+       
+    });
+
+
+
     
     /**
      * User Routes

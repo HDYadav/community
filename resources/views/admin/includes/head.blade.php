@@ -16,7 +16,13 @@
     <!-- End layout styles -->
     <link rel="shortcut icon" href="{{asset('admin/assets/images/favicon.ico')}}" />
    
-    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>  
+   <script src="https://code.jquery.com/jquery-3.5.1.js"></script>   
+
+
+    
+ 
+
+
 
     <script type="text/javascript">
         var baseUrlAdmin = "{{ url('/admin/') }}";

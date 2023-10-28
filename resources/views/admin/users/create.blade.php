@@ -93,7 +93,7 @@
 
                 </div> 
 
-                <div class="row">
+                <!-- <div class="row">
 
                     <div class="col-md-6">
                         <label for="mobile" class="form-label">sub congregation </label>
@@ -119,7 +119,7 @@
                         <span id="mobile" class="text-danger text-left"></span>
                     </div>
 
-                </div>
+                </div> -->
 
 
                 <button type="submit" class="btn btn-primary">Save</button>

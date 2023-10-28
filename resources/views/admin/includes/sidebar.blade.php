@@ -25,12 +25,22 @@
         <i class="mdi mdi-home menu-icon"></i>
       </a>
     </li>
-    @role(['super admin','sub admin','message givers','congregation leader','congregation member']) 
+    @role(['super admin','sub admin']) 
           <li class="nav-item">
             <a href="{{ route('users.index') }}" class="nav-link">Users</a> 
+            <a href="{{ route('message_giver.index') }}" class="nav-link">Message Giver</a> 
             <a href="{{ route('roles.index') }}" class="nav-link">Roles</a>           
             <a href="{{ route('permissions.index') }}" class="nav-link">Permissions</a>           
           </li>
-      @endrole  
+      @endrole
+      
+      @role(['message giver','care taker','sub care taker']) 
+          <li class="nav-item">
+            <a href="{{ route('users.index') }}" class="nav-link">Users</a> 
+            <a href="{{ route('tasks.index') }}" class="nav-link">Tasks</a>          
+          </li>
+      @endrole 
+
+
   </ul>
 </nav>

@@ -90,20 +90,7 @@ class UsersController extends Controller
         }
     }
 
-    /**
-     * Show user data
-     * 
-     * @param User $user
-     * 
-     * @return \Illuminate\Http\Response
-     */
-    // public function show(User $user)
-    // {
-    //     return view('users.show', [
-    //         'user' => $user
-    //     ]);
-    // }
-
+ 
     /**
      * Edit user data
      * 
