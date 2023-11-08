@@ -22,11 +22,63 @@
 
                 <div class="row">
                     <div class="col-md-6">
+<<<<<<< HEAD
                         <label for="name" class="form-label">Name</label>
                         <input value="{{ old('name') }}" type="text" class="form-control" name="name" id="name" placeholder="Name">
 
                         <span id="name" class="text-danger text-left"></span>
                     </div>
+=======
+                        <div class="form-group">
+                            <label for="name" class="form-label">Name</label>
+                            <input value="{{ old('name') }}" type="text" class="form-control" name="name" id="name" placeholder="Name">
+
+                            <span id="name" class="text-danger text-left"></span>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+
+                            <label for="mobile" class="form-label">Mobile </label>
+                            <input value="{{ old('mobile') }}" type="number" id="mobile" class="form-control" name="mobile" placeholder="mobile">
+
+                            <span id="mobile" class="text-danger text-left"></span>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="row">
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="email" class="form-label">Location</label>
+                            <select name="location_id" id="location_id" class="form-control form-control-sm">
+                                <option value=""> Pleas select location </option>
+                                @foreach($locations as $location)
+                                <option value="{{ $location->id}}"> {{ $location->name}} </option>
+                                @endforeach
+                            </select>
+                            <span id="location_id" class="text-danger text-left"></span>
+                        </div>
+                    </div> 
+
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="mobile" class="form-label">Address </label>
+                            <input value="{{ old('address') }}" type="text" class="form-control" name="address" id="address" placeholder="address">
+
+                            <span id="address" class="text-danger text-left"></span>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="row">
+
+>>>>>>> 4413c73 (removed old logs)
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="exampleFormControlSelect3">Role (user type)</label>
@@ -40,9 +92,14 @@
                             <span id="role_id" class="text-danger text-left"></span>
                         </div>
                     </div>
+<<<<<<< HEAD
                 </div>
 
                 <div class="row">
+=======
+
+
+>>>>>>> 4413c73 (removed old logs)
                     <?php $i = 0 ?>
                     <div class="col-md-6">
                         <div class="form-group">
@@ -64,17 +121,21 @@
                         </div>
                     </div>
 
+<<<<<<< HEAD
                     <div class="col-md-6">
                         <label for="mobile" class="form-label">Mobile </label>
                         <input value="{{ old('mobile') }}" type="number" id="mobile" class="form-control" name="mobile" placeholder="mobile">
 
                         <span id="mobile" class="text-danger text-left"></span>
                     </div>
+=======
+>>>>>>> 4413c73 (removed old logs)
                 </div>
 
 
                 <div class="row">
                     <div class="col-md-6">
+<<<<<<< HEAD
                         <label for="email" class="form-label">Email</label>
                         <input value="{{ old('email') }}" type="email" id="email" class="form-control" name="email" placeholder="Email ID">
                         <span id="email" class="text-danger text-left"></span>
@@ -121,6 +182,28 @@
 
                 </div> -->
 
+=======
+                        <div class="form-group">
+                            <label for="email" class="form-label">Email</label>
+                            <input value="{{ old('email') }}" type="email" id="email" class="form-control" name="email" placeholder="Email ID">
+                            <span id="email" class="text-danger text-left"></span>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="mobile" class="form-label">User Status </label>
+                            <select name="status" class="form-control form-control-sm">
+                                <option value="">Select Status</option>
+                                <option value="0">Active</option>
+                                <option value="1">Pending</option>
+                            </select>
+
+                            <span id="mobile" class="text-danger text-left"></span>
+                        </div>
+                    </div>
+                </div>
+>>>>>>> 4413c73 (removed old logs)
 
                 <button type="submit" class="btn btn-primary">Save</button>
                 <a href="{{ route('users.index') }}" class="btn btn-default">Back</a>

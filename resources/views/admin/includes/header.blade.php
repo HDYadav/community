@@ -134,9 +134,24 @@
               </div>
             </li>
             <li class="nav-item nav-logout d-none d-lg-block">
+<<<<<<< HEAD
               <a class="nav-link" href="#">
                 <i class="mdi mdi-power"></i>
               </a>
+=======
+
+            <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+
+                            <a class="nav-link" href="{{ route('logout') }}"
+                                onclick="event.preventDefault();
+                                this.closest('form').submit();">
+                                <i class="mdi mdi-power"></i>
+                            </a>
+                        </form>
+
+              
+>>>>>>> 4413c73 (removed old logs)
             </li>
             <li class="nav-item nav-settings d-none d-lg-block">
               <a class="nav-link" href="#">

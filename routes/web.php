@@ -100,9 +100,12 @@ use App\Http\Controllers\Admin\TaskController;
 
 
 
+<<<<<<< HEAD
 Route::get('/', function () {
     return view('welcome');
 });
+=======
+>>>>>>> 4413c73 (removed old logs)
 
 
 

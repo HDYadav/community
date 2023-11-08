@@ -17,7 +17,12 @@ class AuthenticatedSessionController extends Controller
      */
     public function create(): View
     {
+<<<<<<< HEAD
         return view('auth.login');
+=======
+         
+        return view('login.index');
+>>>>>>> 4413c73 (removed old logs)
     }
 
     /**

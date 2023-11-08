@@ -19,8 +19,12 @@ class UserData
 
 
         public static function getUserFrToken($request)
+<<<<<<< HEAD
         {
  
+=======
+        { 
+>>>>>>> 4413c73 (removed old logs)
                 $access_token = $request->header('Authorization');
 
                 $auth_header = explode(' ', $access_token);
@@ -37,10 +41,19 @@ class UserData
 
         private static function getUserData($user_id)
         {
+<<<<<<< HEAD
 
                 return  DB::table('users as u')->where('u.id', $user_id)->select('u.id','u.name','u.email','u.mobile')->first();
         }
 
+=======
+                return  DB::table('users as u')->where('u.id', $user_id)->select('u.id','u.name','u.email','u.mobile')->first();
+        }
+
+       
+
+
+>>>>>>> 4413c73 (removed old logs)
 
        
 }

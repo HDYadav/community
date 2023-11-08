@@ -28,10 +28,18 @@ class UserRepository implements UserRepositoryInterface
 
         $user =  User::create([
             'parent_id' => $request->parent_id,
+<<<<<<< HEAD
+=======
+            'location_id' => $request->location_id,
+>>>>>>> 4413c73 (removed old logs)
             'user_name' => $request->mobile,
             'real_password' => Str::random(),
             'name' => $request->name,
             'email' => $request->email,
+<<<<<<< HEAD
+=======
+            'address' => $request->address,
+>>>>>>> 4413c73 (removed old logs)
             'mobile' => $request->mobile,
             'status' => $request->status,
             'password' => Hash::make('12345678'),
@@ -114,9 +122,17 @@ class UserRepository implements UserRepositoryInterface
        ->update([
            'name' => $request->name,
            'parent_id' => $request->parent_id,
+<<<<<<< HEAD
            'user_name' => $request->mobile,
            'real_password' => Str::random(),           
            'email' => $request->email,
+=======
+            'location_id' => $request->location_id,
+           'user_name' => $request->mobile,
+           'real_password' => Str::random(),           
+           'email' => $request->email,
+           'address' => $request->address,
+>>>>>>> 4413c73 (removed old logs)
            'mobile' => $request->mobile,
            'status' => $request->status,
            'password' => Hash::make('12345678'),
@@ -137,5 +153,13 @@ class UserRepository implements UserRepositoryInterface
             ->select('r.id as id', 'r.name as name')->orderBy('r.id', 'ASC')->get()->toArray();
     }
 
+<<<<<<< HEAD
+=======
+    public function getLocations(){
+        return DB::table('cities')->select('id', 'name')->get();
+    }
+
+
+>>>>>>> 4413c73 (removed old logs)
 
 }
